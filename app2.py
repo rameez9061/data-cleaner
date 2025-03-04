@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-from dataprep.eda import create_report
 import streamlit.components.v1 as components
 
 
@@ -32,13 +31,29 @@ if uploaded_files:
         st.dataframe(df.head())
 
         # AI-Powered Data Cleaning Insights
-        st.subheader("🔍 AI-Powered Data Insights")
-        if st.checkbox(f"Generate AI Insights for {file.name}"):
-            report = create_report(df)
-            report.show_browser()
-            with open("report.html", "r", encoding="utf-8") as f:
-                html_code = f.read()
-            components.html(html_code, height=600, scrolling=True)
+       # Function to generate AI-powered insights
+def generate_data_summary(df):
+    st.write("📊 **Dataset Summary**")
+    
+    # Show general info
+    st.write(f"📂 Number of Rows: {df.shape[0]}")
+    st.write(f"📊 Number of Columns: {df.shape[1]}")
+
+    # Show missing values
+    st.write("🔍 **Missing Values:**")
+    st.dataframe(df.isnull().sum())
+
+    # Show column types
+    st.write("🧬 **Data Types:**")
+    st.dataframe(df.dtypes)
+
+    # Show summary statistics
+    st.write("📈 **Statistical Summary:**")
+    st.dataframe(df.describe())
+
+# Inside your file processing loop:
+if st.checkbox(f"Generate AI Insights for {file.name}"):
+    generate_data_summary(df)
 
         # Data Cleaning Options
         st.subheader("🛠 Data Cleaning Options")
