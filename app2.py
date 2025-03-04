@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-from pandas_profiling import ProfileReport
+from ydata_profiling import ProfileReport
 import streamlit.components.v1 as components
 
 
