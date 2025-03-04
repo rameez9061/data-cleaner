@@ -4,14 +4,15 @@ import os
 from io import BytesIO
 import subprocess
 
-# Ensure ydata-profiling is installed before importing
+# Attempt to install ydata-profiling if not found
 try:
     import ydata_profiling
 except ModuleNotFoundError:
-    subprocess.check_call(["pip", "install", "ydata-profiling"])
-    import ydata_profiling  # Try importing again after installation
+    st.warning("Installing missing dependencies, please wait...")
+    subprocess.run(["pip", "install", "ydata-profiling"], check=True)
+    import ydata_profiling  # Re-import after installation
 
-from ydata_profiling import ProfileReport  # Now import it normally
+from ydata_profiling import ProfileReport
 import streamlit.components.v1 as components
 
 
