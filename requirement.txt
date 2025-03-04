@@ -1,0 +1,6 @@
+streamlit
+pandas
+openpyxl
+speechrecognition==3.8.1
+pydub
+pyaudio
