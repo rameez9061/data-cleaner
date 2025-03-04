@@ -1,7 +1,7 @@
 streamlit
 pandas
 openpyxl
-pandas-profiling
+dataprep
 speechrecognition==3.8.1
 pydub
 pyaudio
