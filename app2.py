@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-import speech_recognition as sr
 from pandas_profiling import ProfileReport
 import streamlit.components.v1 as components
 
@@ -58,8 +57,6 @@ if uploaded_files:
                     st.write("✅ Missing Values Filled!")
 
         # Voice Input for Data Commands
-        st.subheader("🎙 Voice Input for Data Commands")
-        if st.button("Use Voice Command"):
             recognizer = sr.Recognizer()
             with sr.Microphone() as source:
                 st.write("Listening...")
