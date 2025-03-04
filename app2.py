@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-
-from pandas_profiling import ProfileReport
+from dataprep.eda import create_report
 import streamlit.components.v1 as components
 
 
@@ -35,8 +34,8 @@ if uploaded_files:
         # AI-Powered Data Cleaning Insights
         st.subheader("🔍 AI-Powered Data Insights")
         if st.checkbox(f"Generate AI Insights for {file.name}"):
-            profile = ProfileReport(df, explorative=True)
-            profile.to_file("report.html")
+            report = create_report(df)
+            report.show_browser()
             with open("report.html", "r", encoding="utf-8") as f:
                 html_code = f.read()
             components.html(html_code, height=600, scrolling=True)
