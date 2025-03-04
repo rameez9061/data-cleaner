@@ -1,2 +1,8 @@
 libasound2-dev
 portaudio19-dev
+streamlit
+pandas
+openpyxl
+speechrecognition==3.8.1
+pydub
+pyaudio
