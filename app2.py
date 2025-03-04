@@ -12,7 +12,7 @@ except ModuleNotFoundError:
     subprocess.run(["pip", "install", "ydata-profiling"], check=True)
     import ydata_profiling  # Re-import after installation
 
-from ydata_profiling import ProfileReport
+from pandas_profiling import ProfileReport
 import streamlit.components.v1 as components
 
 
