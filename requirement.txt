@@ -1,6 +1,6 @@
 streamlit
 pandas
-xlsxwriter
+pyxlsb
 dataprep
 speechrecognition==3.8.1
 pydub
