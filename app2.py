@@ -32,28 +32,28 @@ if uploaded_files:
 
         # AI-Powered Data Cleaning Insights
        # Function to generate AI-powered insights
-def generate_data_summary(df):
-    st.write("📊 **Dataset Summary**")
+        def generate_data_summary(df):
+          st.write("📊 **Dataset Summary**")
     
     # Show general info
-    st.write(f"📂 Number of Rows: {df.shape[0]}")
-    st.write(f"📊 Number of Columns: {df.shape[1]}")
+          st.write(f"📂 Number of Rows: {df.shape[0]}")
+          st.write(f"📊 Number of Columns: {df.shape[1]}")
 
     # Show missing values
-    st.write("🔍 **Missing Values:**")
-    st.dataframe(df.isnull().sum())
+          st.write("🔍 **Missing Values:**")
+          st.dataframe(df.isnull().sum())
 
     # Show column types
-    st.write("🧬 **Data Types:**")
-    st.dataframe(df.dtypes)
+          st.write("🧬 **Data Types:**")
+          st.dataframe(df.dtypes)
 
     # Show summary statistics
-    st.write("📈 **Statistical Summary:**")
-    st.dataframe(df.describe())
+          st.write("📈 **Statistical Summary:**")
+          st.dataframe(df.describe())
 
 # Inside your file processing loop:
-if st.checkbox(f"Generate AI Insights for {file.name}"):
-    generate_data_summary(df)
+        if st.checkbox(f"Generate AI Insights for {file.name}"):
+         generate_data_summary(df)
 
         # Data Cleaning Options
         st.subheader("🛠 Data Cleaning Options")
