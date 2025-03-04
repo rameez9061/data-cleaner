@@ -93,7 +93,7 @@ if uploaded_files:
                 file_name = file.name.replace(file_ext, ".csv")
                 mime_type = "text/csv"
             else:
-                df.to_excel(buffer, index=False, engine="xlsxwriter")
+                df.to_excel(buffer, index=False, engine="pyxlsb")
                 file_name = file.name.replace(file_ext, ".xlsx")
                 mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
