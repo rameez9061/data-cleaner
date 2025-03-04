@@ -71,34 +71,7 @@ if uploaded_files:
                     df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
                     st.write("✅ Missing Values Filled!")
 
-        # Voice Input for Data Commands
-            recognizer = sr.Recognizer()
-            with sr.Microphone() as source:
-                st.write("Listening...")
-                audio = recognizer.listen(source)
-
-            try:
-                command = recognizer.recognize_google(audio).lower()
-                st.write(f"🗣 Command received: {command}")
-
-                if "remove duplicates" in command:
-                    df.drop_duplicates(inplace=True)
-                    st.write("✅ Duplicates Removed!")
-
-                elif "fill missing values" in command:
-                    numeric_cols = df.select_dtypes(include=['number']).columns
-                    df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
-                    st.write("✅ Missing Values Filled!")
-
-                elif "show visualisation" in command:
-                    st.bar_chart(df.select_dtypes(include='number').iloc[:, :2])
-
-                else:
-                    st.write("⚠️ Command not recognized.")
-
-            except sr.UnknownValueError:
-                st.error("Sorry, could not understand the command.")
-
+       
         # Select Columns to Convert
         st.subheader("📌 Select Columns to Convert")
         columns = st.multiselect(f"Choose columns for {file.name}", df.columns, default=df.columns)
